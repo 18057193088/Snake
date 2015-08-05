@@ -35,33 +35,60 @@
     
     _gameZoneView = [[GameZoneView alloc]initWithFrame:CGRectMake(PADDING, SCREEN_HEIGH * 0.1, SCREEN_WIDTH - PADDING *2, SNAKE_BODY_COL_COUNT)];
     
-    UISwipeGestureRecognizer * swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(dirctSip:)];
+    UISwipeGestureRecognizer * swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
+      [swip setDirection:UISwipeGestureRecognizerDirectionDown];
+    
+    [self.view addGestureRecognizer:swip];
+    
+    swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
+    [swip setDirection:UISwipeGestureRecognizerDirectionLeft];
+
+    [self.view addGestureRecognizer:swip];
+    
+    swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
+    [swip setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    [self.view addGestureRecognizer:swip];
+    
+    swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
+    [swip setDirection:UISwipeGestureRecognizerDirectionUp];
     
     [self.view addGestureRecognizer:swip];
 
+//    swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
+//    [swip setDirection:UISwipeGestureRecognizerDirectionUp|UISwipeGestureRecognizerDirectionDown];
+//    
+//    [self.view addGestureRecognizer:swip];
+    
     [self.view addSubview:_gameZoneView];
     
 }
 
--(void)dirctSip:(UISwipeGestureRecognizer *)ges{
+-(void)handDirctSip:(UISwipeGestureRecognizer *)ges{
+    
+    
+    
+    NSLog(@"%lu",(unsigned long)ges.direction);
+    
     
     switch (ges.direction) {
         case UISwipeGestureRecognizerDirectionDown:
         {
             _gameZoneView.curDirction = DirctionBottom;
+            NSLog(@"dds");
             
         }
             break;
             
         case UISwipeGestureRecognizerDirectionLeft:
         {
-        
+          NSLog(@"dds1");
             _gameZoneView.curDirction = DirctionLeft;
         }
             break;
             
         case UISwipeGestureRecognizerDirectionRight:
-        {
+        {  NSLog(@"dds2");
         
             _gameZoneView.curDirction = DirctionRight;
             
@@ -69,7 +96,7 @@
             break;
             
         case UISwipeGestureRecognizerDirectionUp:{
-        
+          NSLog(@"dds2");
             _gameZoneView.curDirction = DirctionTop;
             
         }

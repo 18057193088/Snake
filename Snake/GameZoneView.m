@@ -52,12 +52,12 @@
     
     [self y_setHeight:SNAKE_BODY_ROW_COUNT * snakeWidth ];
     
-    for(int i = 0 ; i <2 ; i++){
+    for(int i = 0 ; i <23 ; i++){
         [self addNewSnakeHead];
     
     }
     
-    [self animation];
+   [self animation];
     
 }
 
@@ -98,35 +98,56 @@
     
     snakeHead.nextBody = _curHeadSnakeBody;
     
-    [snakeHead y_rightFromView:_curHeadSnakeBody distance:0];
-    [snakeHead y_setTop:[_curHeadSnakeBody y_TopY]];
-    
-    
-    
     [self addSubview:snakeHead];
     
-    _curHeadSnakeBody = snakeHead;
+  
     
     
     switch (_curDirction) {
         case DirctionTop:
         {
+            [snakeHead y_setLeft:[_curHeadSnakeBody y_LeftX]];
+            [snakeHead y_topFromView:_curHeadSnakeBody distance:0];
+            
+        
+        }
+            break;
+            
+        case DirctionBottom:
+        {
+            [snakeHead y_setLeft:[_curHeadSnakeBody y_LeftX]];
+            [snakeHead y_bottomFromView:_curHeadSnakeBody distance:0];
         
         
         }
             break;
+            
+        case DirctionLeft:
+        {
+            [snakeHead y_leftFromView:_curHeadSnakeBody distance:0];
+            [snakeHead y_setTop:[_curHeadSnakeBody y_TopY]];
+            
+        }
+            break;
+            
+        case DirctionRight:
+        {
+            [snakeHead y_rightFromView:_curHeadSnakeBody distance:0];
+            [snakeHead y_setTop:[_curHeadSnakeBody y_TopY]];
         
+        }
+            break;
             
         default:
             break;
     }
-    
+      _curHeadSnakeBody = snakeHead;
     
 }
 
 -(void)animation{
 
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         
 
         
@@ -155,8 +176,44 @@
             [curBody y_setTop:lastBody.frame.origin.y];
         
         }
-        [_curHeadSnakeBody y_setLeft:[_curHeadSnakeBody y_LeftX] + snakeWidth];
         
+        switch (_curDirction) {
+            case DirctionTop:
+            {
+                [_curHeadSnakeBody y_setTop:[_curHeadSnakeBody y_TopY] - snakeWidth];
+             
+                
+                
+            }
+                break;
+                
+            case DirctionBottom:
+            {
+               [_curHeadSnakeBody y_setTop:[_curHeadSnakeBody y_TopY] + snakeWidth];
+                
+                
+            }
+                break;
+                
+            case DirctionLeft:
+            {
+                [_curHeadSnakeBody y_setLeft:[_curHeadSnakeBody y_LeftX] - snakeWidth ];
+                
+                
+            }
+                break;
+                
+            case DirctionRight:
+            {
+                [_curHeadSnakeBody y_setLeft:[_curHeadSnakeBody y_LeftX] +snakeWidth ];
+                
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
         
         
     } completion:^(BOOL finished) {
