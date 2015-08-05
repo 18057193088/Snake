@@ -11,10 +11,16 @@
 		9A5941691B71A9FD00DD0CE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941681B71A9FD00DD0CE3 /* AppDelegate.m */; };
 		9A59416C1B71A9FD00DD0CE3 /* Snake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A59416A1B71A9FD00DD0CE3 /* Snake.xcdatamodeld */; };
 		9A59416F1B71A9FD00DD0CE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A59416E1B71A9FD00DD0CE3 /* ViewController.m */; };
-		9A5941721B71A9FE00DD0CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5941701B71A9FD00DD0CE3 /* Main.storyboard */; };
 		9A5941741B71A9FE00DD0CE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5941731B71A9FE00DD0CE3 /* Images.xcassets */; };
 		9A5941771B71A9FE00DD0CE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5941751B71A9FE00DD0CE3 /* LaunchScreen.xib */; };
 		9A5941831B71A9FE00DD0CE3 /* SnakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941821B71A9FE00DD0CE3 /* SnakeTests.m */; };
+		9A5941931B71AFAC00DD0CE3 /* YUMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941921B71AFAC00DD0CE3 /* YUMainViewController.m */; };
+		9A5941971B71B13500DD0CE3 /* UIView+YUStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941961B71B13500DD0CE3 /* UIView+YUStyle.m */; };
+		9A59419B1B71B1C400DD0CE3 /* UIColor+GameColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A59419A1B71B1C400DD0CE3 /* UIColor+GameColor.m */; };
+		9A5941A01B71B4A600DD0CE3 /* SocreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A59419F1B71B4A600DD0CE3 /* SocreView.m */; };
+		9A5941A41B71E2A700DD0CE3 /* GameZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941A31B71E2A700DD0CE3 /* GameZoneView.m */; };
+		9A5941A71B71E85D00DD0CE3 /* SnakeBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941A61B71E85D00DD0CE3 /* SnakeBodyView.m */; };
+		9A5941AE1B71F33D00DD0CE3 /* RowCol.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941AD1B71F33D00DD0CE3 /* RowCol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +42,26 @@
 		9A59416B1B71A9FD00DD0CE3 /* Snake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Snake.xcdatamodel; sourceTree = "<group>"; };
 		9A59416D1B71A9FD00DD0CE3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9A59416E1B71A9FD00DD0CE3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9A5941711B71A9FE00DD0CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A5941731B71A9FE00DD0CE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9A5941761B71A9FE00DD0CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9A59417C1B71A9FE00DD0CE3 /* SnakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5941811B71A9FE00DD0CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A5941821B71A9FE00DD0CE3 /* SnakeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeTests.m; sourceTree = "<group>"; };
+		9A5941911B71AFAC00DD0CE3 /* YUMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUMainViewController.h; sourceTree = "<group>"; };
+		9A5941921B71AFAC00DD0CE3 /* YUMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUMainViewController.m; sourceTree = "<group>"; };
+		9A5941951B71B13500DD0CE3 /* UIView+YUStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YUStyle.h"; sourceTree = "<group>"; };
+		9A5941961B71B13500DD0CE3 /* UIView+YUStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YUStyle.m"; sourceTree = "<group>"; };
+		9A5941991B71B1C400DD0CE3 /* UIColor+GameColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GameColor.h"; sourceTree = "<group>"; };
+		9A59419A1B71B1C400DD0CE3 /* UIColor+GameColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GameColor.m"; sourceTree = "<group>"; };
+		9A59419E1B71B4A600DD0CE3 /* SocreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocreView.h; sourceTree = "<group>"; };
+		9A59419F1B71B4A600DD0CE3 /* SocreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocreView.m; sourceTree = "<group>"; };
+		9A5941A11B71B95200DD0CE3 /* CONST_PUBLIC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CONST_PUBLIC.h; sourceTree = "<group>"; };
+		9A5941A21B71E2A700DD0CE3 /* GameZoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameZoneView.h; sourceTree = "<group>"; };
+		9A5941A31B71E2A700DD0CE3 /* GameZoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameZoneView.m; sourceTree = "<group>"; };
+		9A5941A51B71E85D00DD0CE3 /* SnakeBodyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnakeBodyView.h; sourceTree = "<group>"; };
+		9A5941A61B71E85D00DD0CE3 /* SnakeBodyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnakeBodyView.m; sourceTree = "<group>"; };
+		9A5941AC1B71F33D00DD0CE3 /* RowCol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCol.h; sourceTree = "<group>"; };
+		9A5941AD1B71F33D00DD0CE3 /* RowCol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowCol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +103,15 @@
 		9A5941621B71A9FD00DD0CE3 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				9A5941A81B71E8C700DD0CE3 /* 模型 */,
+				9A5941981B71B19700DD0CE3 /* 颜色 */,
+				9A5941941B71B12A00DD0CE3 /* 扩展 */,
+				9A59418D1B71AAF500DD0CE3 /* 场景 */,
+				9A59418C1B71AAEB00DD0CE3 /* 元素 */,
 				9A5941671B71A9FD00DD0CE3 /* AppDelegate.h */,
 				9A5941681B71A9FD00DD0CE3 /* AppDelegate.m */,
 				9A59416D1B71A9FD00DD0CE3 /* ViewController.h */,
 				9A59416E1B71A9FD00DD0CE3 /* ViewController.m */,
-				9A5941701B71A9FD00DD0CE3 /* Main.storyboard */,
 				9A5941731B71A9FE00DD0CE3 /* Images.xcassets */,
 				9A5941751B71A9FE00DD0CE3 /* LaunchScreen.xib */,
 				9A59416A1B71A9FD00DD0CE3 /* Snake.xcdatamodeld */,
@@ -120,6 +144,96 @@
 				9A5941811B71A9FE00DD0CE3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A59418C1B71AAEB00DD0CE3 /* 元素 */ = {
+			isa = PBXGroup;
+			children = (
+				9A59419D1B71B44D00DD0CE3 /* 游戏区 */,
+				9A59419C1B71B43C00DD0CE3 /* 分数牌 */,
+				9A5941901B71AE0600DD0CE3 /* 果子 */,
+				9A59418F1B71ADFA00DD0CE3 /* 蛇身 */,
+			);
+			name = "元素";
+			sourceTree = "<group>";
+		};
+		9A59418D1B71AAF500DD0CE3 /* 场景 */ = {
+			isa = PBXGroup;
+			children = (
+				9A59418E1B71ADF200DD0CE3 /* 主界面 */,
+			);
+			name = "场景";
+			sourceTree = "<group>";
+		};
+		9A59418E1B71ADF200DD0CE3 /* 主界面 */ = {
+			isa = PBXGroup;
+			children = (
+				9A5941911B71AFAC00DD0CE3 /* YUMainViewController.h */,
+				9A5941921B71AFAC00DD0CE3 /* YUMainViewController.m */,
+			);
+			name = "主界面";
+			sourceTree = "<group>";
+		};
+		9A59418F1B71ADFA00DD0CE3 /* 蛇身 */ = {
+			isa = PBXGroup;
+			children = (
+				9A5941A51B71E85D00DD0CE3 /* SnakeBodyView.h */,
+				9A5941A61B71E85D00DD0CE3 /* SnakeBodyView.m */,
+			);
+			name = "蛇身";
+			sourceTree = "<group>";
+		};
+		9A5941901B71AE0600DD0CE3 /* 果子 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "果子";
+			sourceTree = "<group>";
+		};
+		9A5941941B71B12A00DD0CE3 /* 扩展 */ = {
+			isa = PBXGroup;
+			children = (
+				9A5941A11B71B95200DD0CE3 /* CONST_PUBLIC.h */,
+				9A5941951B71B13500DD0CE3 /* UIView+YUStyle.h */,
+				9A5941961B71B13500DD0CE3 /* UIView+YUStyle.m */,
+			);
+			name = "扩展";
+			sourceTree = "<group>";
+		};
+		9A5941981B71B19700DD0CE3 /* 颜色 */ = {
+			isa = PBXGroup;
+			children = (
+				9A5941991B71B1C400DD0CE3 /* UIColor+GameColor.h */,
+				9A59419A1B71B1C400DD0CE3 /* UIColor+GameColor.m */,
+			);
+			name = "颜色";
+			sourceTree = "<group>";
+		};
+		9A59419C1B71B43C00DD0CE3 /* 分数牌 */ = {
+			isa = PBXGroup;
+			children = (
+				9A59419E1B71B4A600DD0CE3 /* SocreView.h */,
+				9A59419F1B71B4A600DD0CE3 /* SocreView.m */,
+			);
+			name = "分数牌";
+			sourceTree = "<group>";
+		};
+		9A59419D1B71B44D00DD0CE3 /* 游戏区 */ = {
+			isa = PBXGroup;
+			children = (
+				9A5941A21B71E2A700DD0CE3 /* GameZoneView.h */,
+				9A5941A31B71E2A700DD0CE3 /* GameZoneView.m */,
+			);
+			name = "游戏区";
+			sourceTree = "<group>";
+		};
+		9A5941A81B71E8C700DD0CE3 /* 模型 */ = {
+			isa = PBXGroup;
+			children = (
+				9A5941AC1B71F33D00DD0CE3 /* RowCol.h */,
+				9A5941AD1B71F33D00DD0CE3 /* RowCol.m */,
+			);
+			name = "模型";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +316,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A5941721B71A9FE00DD0CE3 /* Main.storyboard in Resources */,
 				9A5941771B71A9FE00DD0CE3 /* LaunchScreen.xib in Resources */,
 				9A5941741B71A9FE00DD0CE3 /* Images.xcassets in Resources */,
 			);
@@ -222,10 +335,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A5941AE1B71F33D00DD0CE3 /* RowCol.m in Sources */,
 				9A59416C1B71A9FD00DD0CE3 /* Snake.xcdatamodeld in Sources */,
+				9A5941931B71AFAC00DD0CE3 /* YUMainViewController.m in Sources */,
+				9A5941A01B71B4A600DD0CE3 /* SocreView.m in Sources */,
+				9A5941A71B71E85D00DD0CE3 /* SnakeBodyView.m in Sources */,
+				9A59419B1B71B1C400DD0CE3 /* UIColor+GameColor.m in Sources */,
+				9A5941971B71B13500DD0CE3 /* UIView+YUStyle.m in Sources */,
 				9A5941691B71A9FD00DD0CE3 /* AppDelegate.m in Sources */,
 				9A59416F1B71A9FD00DD0CE3 /* ViewController.m in Sources */,
 				9A5941661B71A9FD00DD0CE3 /* main.m in Sources */,
+				9A5941A41B71E2A700DD0CE3 /* GameZoneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,14 +368,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9A5941701B71A9FD00DD0CE3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9A5941711B71A9FE00DD0CE3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9A5941751B71A9FE00DD0CE3 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -352,6 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Snake/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -362,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Snake/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

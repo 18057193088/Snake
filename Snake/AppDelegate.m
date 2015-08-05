@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "YUMainViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [application setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
+   YUMainViewController * mainController =  [[YUMainViewController alloc]init];
+    
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = mainController;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
