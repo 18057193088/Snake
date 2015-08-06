@@ -17,11 +17,16 @@ DirctionRight,
 DirctionBottom
 };
 @class SnakeBodyView;
+@class GameZoneModel;
 
 @interface GameZoneView : UIView
 @property(strong,nonatomic) NSMutableArray * sakeBodyArr ;
 
 @property(assign,nonatomic) Dirction curDirction;
 @property(weak,nonatomic) SnakeBodyView * curHeadSnakeBody;
+@property(weak,nonatomic) SnakeBodyView * curTailSnakeBody;
+
+@property(strong,nonatomic) GameZoneModel * model;
+@property(strong,nonatomic) NSMutableArray * fruitViewArr;
 
 @end

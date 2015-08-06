@@ -11,5 +11,6 @@
 @interface SnakeBodyView : UIView
 @property(weak,nonatomic) SnakeBodyView * nextBody;
 @property(assign,nonatomic) CGPoint lastTimePoint ;
+@property(strong,nonatomic) UIImageView * imaView;
 
 @end

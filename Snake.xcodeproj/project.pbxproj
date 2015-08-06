@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A3475BB1B72F8B300D5F337 /* GameZoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3475BA1B72F8B300D5F337 /* GameZoneModel.m */; };
+		9A3475BE1B730B7600D5F337 /* Fruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3475BD1B730B7600D5F337 /* Fruit.m */; };
+		9A3475C21B734F6A00D5F337 /* YUSoundCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3475C11B734F6A00D5F337 /* YUSoundCenter.m */; };
 		9A5941661B71A9FD00DD0CE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941651B71A9FD00DD0CE3 /* main.m */; };
 		9A5941691B71A9FD00DD0CE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941681B71A9FD00DD0CE3 /* AppDelegate.m */; };
 		9A59416C1B71A9FD00DD0CE3 /* Snake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A59416A1B71A9FD00DD0CE3 /* Snake.xcdatamodeld */; };
@@ -34,6 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A3475B91B72F8B300D5F337 /* GameZoneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameZoneModel.h; sourceTree = "<group>"; };
+		9A3475BA1B72F8B300D5F337 /* GameZoneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameZoneModel.m; sourceTree = "<group>"; };
+		9A3475BC1B730B7600D5F337 /* Fruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fruit.h; sourceTree = "<group>"; };
+		9A3475BD1B730B7600D5F337 /* Fruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fruit.m; sourceTree = "<group>"; };
+		9A3475BF1B73128100D5F337 /* CONST_FRUITE_TYPE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CONST_FRUITE_TYPE.h; sourceTree = "<group>"; };
+		9A3475C01B734F6A00D5F337 /* YUSoundCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUSoundCenter.h; sourceTree = "<group>"; };
+		9A3475C11B734F6A00D5F337 /* YUSoundCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUSoundCenter.m; sourceTree = "<group>"; };
+		9A3475C31B7350F300D5F337 /* CONST_GAME_ZONE_MODEL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CONST_GAME_ZONE_MODEL.h; sourceTree = "<group>"; };
 		9A5941601B71A9FD00DD0CE3 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5941641B71A9FD00DD0CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A5941651B71A9FD00DD0CE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,6 +93,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A3475C41B7354DD00D5F337 /* 计分器 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "计分器";
+			sourceTree = "<group>";
+		};
 		9A5941571B71A9FD00DD0CE3 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +204,8 @@
 		9A5941901B71AE0600DD0CE3 /* 果子 */ = {
 			isa = PBXGroup;
 			children = (
+				9A3475BC1B730B7600D5F337 /* Fruit.h */,
+				9A3475BD1B730B7600D5F337 /* Fruit.m */,
 			);
 			name = "果子";
 			sourceTree = "<group>";
@@ -193,6 +213,8 @@
 		9A5941941B71B12A00DD0CE3 /* 扩展 */ = {
 			isa = PBXGroup;
 			children = (
+				9A3475C01B734F6A00D5F337 /* YUSoundCenter.h */,
+				9A3475C11B734F6A00D5F337 /* YUSoundCenter.m */,
 				9A5941A11B71B95200DD0CE3 /* CONST_PUBLIC.h */,
 				9A5941951B71B13500DD0CE3 /* UIView+YUStyle.h */,
 				9A5941961B71B13500DD0CE3 /* UIView+YUStyle.m */,
@@ -223,6 +245,7 @@
 			children = (
 				9A5941A21B71E2A700DD0CE3 /* GameZoneView.h */,
 				9A5941A31B71E2A700DD0CE3 /* GameZoneView.m */,
+				9A3475BF1B73128100D5F337 /* CONST_FRUITE_TYPE.h */,
 			);
 			name = "游戏区";
 			sourceTree = "<group>";
@@ -230,8 +253,12 @@
 		9A5941A81B71E8C700DD0CE3 /* 模型 */ = {
 			isa = PBXGroup;
 			children = (
+				9A3475C41B7354DD00D5F337 /* 计分器 */,
 				9A5941AC1B71F33D00DD0CE3 /* RowCol.h */,
 				9A5941AD1B71F33D00DD0CE3 /* RowCol.m */,
+				9A3475B91B72F8B300D5F337 /* GameZoneModel.h */,
+				9A3475BA1B72F8B300D5F337 /* GameZoneModel.m */,
+				9A3475C31B7350F300D5F337 /* CONST_GAME_ZONE_MODEL.h */,
 			);
 			name = "模型";
 			sourceTree = "<group>";
@@ -285,7 +312,7 @@
 				TargetAttributes = {
 					9A59415F1B71A9FD00DD0CE3 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = V897KG9XBN;
+						DevelopmentTeam = 37N3DTX5XC;
 					};
 					9A59417B1B71A9FE00DD0CE3 = {
 						CreatedOnToolsVersion = 6.4;
@@ -337,11 +364,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5941AE1B71F33D00DD0CE3 /* RowCol.m in Sources */,
+				9A3475BB1B72F8B300D5F337 /* GameZoneModel.m in Sources */,
 				9A59416C1B71A9FD00DD0CE3 /* Snake.xcdatamodeld in Sources */,
 				9A5941931B71AFAC00DD0CE3 /* YUMainViewController.m in Sources */,
+				9A3475BE1B730B7600D5F337 /* Fruit.m in Sources */,
 				9A5941A01B71B4A600DD0CE3 /* SocreView.m in Sources */,
 				9A5941A71B71E85D00DD0CE3 /* SnakeBodyView.m in Sources */,
 				9A59419B1B71B1C400DD0CE3 /* UIColor+GameColor.m in Sources */,
+				9A3475C21B734F6A00D5F337 /* YUSoundCenter.m in Sources */,
 				9A5941971B71B13500DD0CE3 /* UIView+YUStyle.m in Sources */,
 				9A5941691B71A9FD00DD0CE3 /* AppDelegate.m in Sources */,
 				9A59416F1B71A9FD00DD0CE3 /* ViewController.m in Sources */,

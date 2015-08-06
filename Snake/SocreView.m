@@ -9,7 +9,7 @@
 #import "SocreView.h"
 #import "UIColor+GameColor.h"
 #import "UIView+YUStyle.h"
-#define FONT_SIZE 16
+#define FONT_SIZE 20
 @implementation SocreView
 -(id)initWithFrame:(CGRect)frame{
     
@@ -28,10 +28,11 @@
 -(void)setUp{
 
     _socreLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, [self y_Width] , [self y_Height])];
-    [_socreLabel setTextColor:[UIColor happyBlue]];
+    [_socreLabel setTextColor:[UIColor blackColor]];
     [_socreLabel setFont:[UIFont systemFontOfSize:FONT_SIZE]];
     [_socreLabel setText:@"分数:200"];
     [self addSubview:_socreLabel];
+    
     
 }
 @end

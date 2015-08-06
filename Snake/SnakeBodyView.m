@@ -8,6 +8,7 @@
 
 #import "SnakeBodyView.h"
 #import "UIColor+GameColor.h"
+#import "UIView+YUStyle.h"
 @implementation SnakeBodyView
 
 -(id)initWithFrame:(CGRect)frame{
@@ -24,8 +25,17 @@
 
 
 -(void)setUp{
-
-    self.backgroundColor = [UIColor happyPink];
+    
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = [self y_Width] * 0.3;
+    self.backgroundColor =[UIColor happyPink];
+    self.layer.borderWidth = 0.3;
+    self.layer.borderColor =[UIColor whiteColor].CGColor;
+    
+    _imaView =[[UIImageView alloc]initWithFrame:self.bounds];
+    [self addSubview:_imaView];
+    
+  
     
 }
 @end

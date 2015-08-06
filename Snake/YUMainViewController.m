@@ -27,7 +27,7 @@
 }
 -(void)setUp{
 
-    self.view.backgroundColor = [UIColor happyYellow];
+    self.view.backgroundColor = [UIColor happyPink];
     
     _gameScoreView = [[SocreView alloc]initWithFrame:CGRectMake(PADDING, PADDING, SCREEN_WIDTH -PADDING *2, 20)];
     
@@ -68,27 +68,46 @@
     
     
     
-    NSLog(@"%lu",(unsigned long)ges.direction);
-    
+    /*
+        取消掉逆方向操作
+     
+     */
+  
     
     switch (ges.direction) {
         case UISwipeGestureRecognizerDirectionDown:
         {
+            if(_gameZoneView.curDirction == DirctionTop){
+                
+                break;
+                
+            }
             _gameZoneView.curDirction = DirctionBottom;
-            NSLog(@"dds");
+          
             
         }
             break;
             
         case UISwipeGestureRecognizerDirectionLeft:
         {
-          NSLog(@"dds1");
+            
+            if(_gameZoneView.curDirction == DirctionRight){
+                
+                break;
+                
+            }
+         
             _gameZoneView.curDirction = DirctionLeft;
         }
             break;
             
         case UISwipeGestureRecognizerDirectionRight:
-        {  NSLog(@"dds2");
+        {
+            if(_gameZoneView.curDirction == DirctionLeft){
+            
+            break;
+            
+            }
         
             _gameZoneView.curDirction = DirctionRight;
             
@@ -96,7 +115,11 @@
             break;
             
         case UISwipeGestureRecognizerDirectionUp:{
-          NSLog(@"dds2");
+            if(_gameZoneView.curDirction == DirctionBottom){
+                
+                break;
+                
+            }
             _gameZoneView.curDirction = DirctionTop;
             
         }

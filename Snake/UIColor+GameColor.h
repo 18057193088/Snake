@@ -12,5 +12,7 @@
 +(UIColor *)happyBlue;
 +(UIColor *)happyYellow;
 +(UIColor*) happyPink;
++(UIColor*) happygray;
++(UIColor *) happyWhite;
 
 @end
