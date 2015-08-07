@@ -10,11 +10,20 @@
 #import "UIColor+GameColor.h"
 #import "SocreView.h"
 #import "CONST_PUBLIC.h"
-#import "GameZoneView.h"
-#import "UIView+YUStyle.h"
-#define PADDING 20
-@interface YUMainViewController ()
 
+#import "UIView+YUStyle.h"
+#import "StartButton.h"
+#import "GameZoneModel.h"
+
+#import "SnakeBodyView.h"
+#define PADDING 20
+#define VIRTUAL_BOX_HEIGH 160
+@interface YUMainViewController ()
+{
+
+    CGPoint _startPoint;
+    
+}
 @end
 
 @implementation YUMainViewController
@@ -29,53 +38,169 @@
 
     self.view.backgroundColor = [UIColor happyPink];
     
-    _gameScoreView = [[SocreView alloc]initWithFrame:CGRectMake(PADDING, PADDING, SCREEN_WIDTH -PADDING *2, 20)];
+    _gameScoreView = [[SocreView alloc]initWithFrame:CGRectMake(PADDING, 10, SCREEN_WIDTH -PADDING *2, 20)];
     
     [self.view addSubview:_gameScoreView];
     
-    _gameZoneView = [[GameZoneView alloc]initWithFrame:CGRectMake(PADDING, SCREEN_HEIGH * 0.1, SCREEN_WIDTH - PADDING *2, SNAKE_BODY_COL_COUNT)];
-    
-    UISwipeGestureRecognizer * swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
-      [swip setDirection:UISwipeGestureRecognizerDirectionDown];
-    
-    [self.view addGestureRecognizer:swip];
-    
-    swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
-    [swip setDirection:UISwipeGestureRecognizerDirectionLeft];
+    _gameZoneView = [[GameZoneView alloc]initWithFrame:CGRectMake(PADDING, SCREEN_HEIGH * 0.07, (int)(SCREEN_WIDTH - PADDING *2), SNAKE_BODY_COL_COUNT)];
 
-    [self.view addGestureRecognizer:swip];
+    _gameZoneView.deledge= self;
     
-    swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
-    [swip setDirection:UISwipeGestureRecognizerDirectionRight];
-    
-    [self.view addGestureRecognizer:swip];
-    
-    swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
-    [swip setDirection:UISwipeGestureRecognizerDirectionUp];
-    
-    [self.view addGestureRecognizer:swip];
 
-//    swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handDirctSip:)];
-//    [swip setDirection:UISwipeGestureRecognizerDirectionUp|UISwipeGestureRecognizerDirectionDown];
-//    
-//    [self.view addGestureRecognizer:swip];
     
     [self.view addSubview:_gameZoneView];
     
+    _startButton = [[StartButton alloc]initWithFrame:CGRectMake(0, 0, [_gameZoneView y_Width ]*0.5, 50)];
+    [self.view addSubview:_startButton];
+    
+    [_startButton y_setAlign:5];
+    
+    [self startButtonEvent];
+    
+
+    
+//    _virtualKeyBoard = [[VirtualKeyBoard alloc]initWithFrame:CGRectMake(PADDING, 0, SCREEN_WIDTH - PADDING *2, VIRTUAL_BOX_HEIGH)];
+//    
+//    _virtualKeyBoard.deledge = self;
+//    
+//    
+//    [self.view addSubview:_virtualKeyBoard];
+//     
+//    
+//    [_virtualKeyBoard y_setBottom:PADDING];
+//    
+//    float half = (SCREEN_HEIGH - [_gameZoneView y_BottomY])/2;
+//    
+//    _virtualKeyBoard.center = CGPointMake(_gameZoneView.center.x, SCREEN_HEIGH - half);
+    
+    
+    [self addSwipHand];
+    
 }
 
--(void)handDirctSip:(UISwipeGestureRecognizer *)ges{
+-(void)addSwipHand{
+
+    UISwipeGestureRecognizer * reg =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipHand:)];
+    [reg setDirection:UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:reg];
+    
+     reg =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipHand:)];
+    [reg setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer:reg];
+    
+    reg =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipHand:)];
+    [reg setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:reg];
+    
+    reg =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipHand:)];
+    [reg setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:reg];
+    
+}
+
+-(void)dirctionButtonTouchUpInSide:(int)tag{
+    int dir[4] = {DirctionLeft,DirctionTop,DirctionRight,DirctionBottom};
+    
+    [self handDirctSip:dir[tag]];
+    
+
+}
+
+
+
+-(void)gameOver{
+
+    [self showStartButton];
+    
+}
+-(void)startButtonEvent{
+
+    __weak typeof (self) weakSelf = self;
+    _startButton.touchCallBack = ^(){
+    
+        [weakSelf.gameZoneView startGame];
+        [weakSelf hideStarButton];
+        
+    };
+    
+}
+/*开始按钮*/
+-(void)showStartButton{
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        [_startButton y_setAlign:5];
+        
+        _startButton.alpha = 1 ;
+    }];
+}
+
+-(void)hideStarButton{
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        [_startButton y_setTop:SCREEN_HEIGH];
+        _startButton.alpha = 0 ;
+        
+    }];
     
     
+}
+
+-(void)swipHand:(UISwipeGestureRecognizer *)reg{
+
+    switch (reg.direction) {
+        case UISwipeGestureRecognizerDirectionDown:
+        {
+        
+            [self handDirctSip:DirctionBottom];
+            
+        }
+            break;
+        case UISwipeGestureRecognizerDirectionLeft:
+        {
+            
+            [self handDirctSip:DirctionLeft];
+            
+        }
+            break;
+        case UISwipeGestureRecognizerDirectionRight:
+        {
+            
+            [self handDirctSip:DirctionRight];
+            
+        }
+            break;
+        case UISwipeGestureRecognizerDirectionUp:
+        {
+            
+            [self handDirctSip:DirctionTop];
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+
+}
+
+-(void)handDirctSip:(Dirction)dir{
     
+    
+    if(_gameZoneView.model.isGameRunnig == NO){
+    
+        return;
+        
+    }
     /*
         取消掉逆方向操作
      
      */
   
     
-    switch (ges.direction) {
-        case UISwipeGestureRecognizerDirectionDown:
+    switch (dir) {
+        case DirctionBottom:
         {
             if(_gameZoneView.curDirction == DirctionTop){
                 
@@ -88,7 +213,7 @@
         }
             break;
             
-        case UISwipeGestureRecognizerDirectionLeft:
+        case DirctionLeft:
         {
             
             if(_gameZoneView.curDirction == DirctionRight){
@@ -101,7 +226,7 @@
         }
             break;
             
-        case UISwipeGestureRecognizerDirectionRight:
+        case DirctionRight:
         {
             if(_gameZoneView.curDirction == DirctionLeft){
             
@@ -114,7 +239,7 @@
         }
             break;
             
-        case UISwipeGestureRecognizerDirectionUp:{
+        case DirctionTop:{
             if(_gameZoneView.curDirction == DirctionBottom){
                 
                 break;

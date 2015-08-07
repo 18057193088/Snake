@@ -16,5 +16,6 @@
 -(void)clearMap:(int)row col:(int)col;
 
 @property(assign,nonatomic)float curSpeed;
+@property(assign,nonatomic) int curSpeedLevel;
 
 @end

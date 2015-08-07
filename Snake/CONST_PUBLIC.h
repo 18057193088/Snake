@@ -13,8 +13,8 @@
 #define StateBarHeight 20
 #define IMPOSSIBLE -26545
 
-#define SNAKE_BODY_ROW_COUNT 35
-#define SNAKE_BODY_COL_COUNT 25
+#define SNAKE_BODY_ROW_COUNT 40
+#define SNAKE_BODY_COL_COUNT 30
 typedef void (^none_return_callback)(void);
 
 typedef void(^pageChange)(int );

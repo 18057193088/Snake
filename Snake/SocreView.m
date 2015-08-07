@@ -26,13 +26,11 @@
 }
 
 -(void)setUp{
-
     _socreLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, [self y_Width] , [self y_Height])];
-    [_socreLabel setTextColor:[UIColor blackColor]];
+    [_socreLabel setTextColor:[UIColor whiteColor]];
     [_socreLabel setFont:[UIFont systemFontOfSize:FONT_SIZE]];
     [_socreLabel setText:@"分数:200"];
     [self addSubview:_socreLabel];
-    
     
 }
 @end

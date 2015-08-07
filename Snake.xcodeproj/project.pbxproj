@@ -24,6 +24,8 @@
 		9A5941A41B71E2A700DD0CE3 /* GameZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941A31B71E2A700DD0CE3 /* GameZoneView.m */; };
 		9A5941A71B71E85D00DD0CE3 /* SnakeBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941A61B71E85D00DD0CE3 /* SnakeBodyView.m */; };
 		9A5941AE1B71F33D00DD0CE3 /* RowCol.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5941AD1B71F33D00DD0CE3 /* RowCol.m */; };
+		9AC7CAC71B74562C00EF5639 /* StartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC7CAC61B74562C00EF5639 /* StartButton.m */; };
+		9AC7CACB1B74975700EF5639 /* VirtualKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC7CACA1B74975700EF5639 /* VirtualKeyBoard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,10 @@
 		9A5941A61B71E85D00DD0CE3 /* SnakeBodyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnakeBodyView.m; sourceTree = "<group>"; };
 		9A5941AC1B71F33D00DD0CE3 /* RowCol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCol.h; sourceTree = "<group>"; };
 		9A5941AD1B71F33D00DD0CE3 /* RowCol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowCol.m; sourceTree = "<group>"; };
+		9AC7CAC51B74562C00EF5639 /* StartButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButton.h; sourceTree = "<group>"; };
+		9AC7CAC61B74562C00EF5639 /* StartButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartButton.m; sourceTree = "<group>"; };
+		9AC7CAC91B74975700EF5639 /* VirtualKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualKeyBoard.h; sourceTree = "<group>"; };
+		9AC7CACA1B74975700EF5639 /* VirtualKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualKeyBoard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +173,8 @@
 		9A59418C1B71AAEB00DD0CE3 /* 元素 */ = {
 			isa = PBXGroup;
 			children = (
+				9AC7CAC81B74963400EF5639 /* 虚拟键盘 */,
+				9AC7CAC41B7443BD00EF5639 /* 开始按钮 */,
 				9A59419D1B71B44D00DD0CE3 /* 游戏区 */,
 				9A59419C1B71B43C00DD0CE3 /* 分数牌 */,
 				9A5941901B71AE0600DD0CE3 /* 果子 */,
@@ -261,6 +269,24 @@
 				9A3475C31B7350F300D5F337 /* CONST_GAME_ZONE_MODEL.h */,
 			);
 			name = "模型";
+			sourceTree = "<group>";
+		};
+		9AC7CAC41B7443BD00EF5639 /* 开始按钮 */ = {
+			isa = PBXGroup;
+			children = (
+				9AC7CAC51B74562C00EF5639 /* StartButton.h */,
+				9AC7CAC61B74562C00EF5639 /* StartButton.m */,
+			);
+			name = "开始按钮";
+			sourceTree = "<group>";
+		};
+		9AC7CAC81B74963400EF5639 /* 虚拟键盘 */ = {
+			isa = PBXGroup;
+			children = (
+				9AC7CAC91B74975700EF5639 /* VirtualKeyBoard.h */,
+				9AC7CACA1B74975700EF5639 /* VirtualKeyBoard.m */,
+			);
+			name = "虚拟键盘";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,11 +393,13 @@
 				9A3475BB1B72F8B300D5F337 /* GameZoneModel.m in Sources */,
 				9A59416C1B71A9FD00DD0CE3 /* Snake.xcdatamodeld in Sources */,
 				9A5941931B71AFAC00DD0CE3 /* YUMainViewController.m in Sources */,
+				9AC7CACB1B74975700EF5639 /* VirtualKeyBoard.m in Sources */,
 				9A3475BE1B730B7600D5F337 /* Fruit.m in Sources */,
 				9A5941A01B71B4A600DD0CE3 /* SocreView.m in Sources */,
 				9A5941A71B71E85D00DD0CE3 /* SnakeBodyView.m in Sources */,
 				9A59419B1B71B1C400DD0CE3 /* UIColor+GameColor.m in Sources */,
 				9A3475C21B734F6A00D5F337 /* YUSoundCenter.m in Sources */,
+				9AC7CAC71B74562C00EF5639 /* StartButton.m in Sources */,
 				9A5941971B71B13500DD0CE3 /* UIView+YUStyle.m in Sources */,
 				9A5941691B71A9FD00DD0CE3 /* AppDelegate.m in Sources */,
 				9A59416F1B71A9FD00DD0CE3 /* ViewController.m in Sources */,

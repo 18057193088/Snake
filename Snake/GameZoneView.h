@@ -18,7 +18,13 @@ DirctionBottom
 };
 @class SnakeBodyView;
 @class GameZoneModel;
+@class StartButton;
+@protocol GameZoneViewDeledge <NSObject>
 
+-(void)gameOver;
+
+
+@end
 @interface GameZoneView : UIView
 @property(strong,nonatomic) NSMutableArray * sakeBodyArr ;
 
@@ -28,5 +34,10 @@ DirctionBottom
 
 @property(strong,nonatomic) GameZoneModel * model;
 @property(strong,nonatomic) NSMutableArray * fruitViewArr;
+@property(weak,nonatomic) id<GameZoneViewDeledge>deledge;
+
+-(void)startGame;
+
+
 
 @end

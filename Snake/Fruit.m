@@ -27,7 +27,7 @@
 
     
     if(type == FRUIT_NEW_BODY_TYPE){
-        [_imaView setImage:[UIImage imageNamed:@"西瓜"]];
+        [_imaView setImage:[UIImage imageNamed:@"苹果"]];
     
     }
     
@@ -40,7 +40,15 @@
     if(type == FRUIT_NEW_BODY_SPEED_UP_TYPE){
     
          [_imaView setImage:[UIImage imageNamed:@"橙子"]];
+    	
+    }
+    if(type == FRUIT_NEW_BODY_RANDOM_ADD_BODY){
     
+        [_imaView setImage:[UIImage imageNamed:@"西瓜"]];
+        
+    }
+    if(type == FRUIT_MONSTER){
+        [_imaView setImage:[UIImage imageNamed:@"怪物"]];
     }
 }
 -(void)setUp{

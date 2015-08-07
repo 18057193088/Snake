@@ -8,8 +8,10 @@
 
 #import "GameZoneModel.h"
 #import "CONST_PUBLIC.h"
-int map[35][25];
+int map[99][99];
 @implementation GameZoneModel
+@synthesize curSpeedLevel = _curSpeedLevel;
+
 -(id)init{
 
     self = [super init];
@@ -22,10 +24,21 @@ int map[35][25];
     
 }
 
+-(void)setCurSpeedLevel:(int)curSpeedLevel{
+
+    _curSpeedLevel = curSpeedLevel;
+    
+    if(_curSpeedLevel ==0 ){
+    
+    }
+    
+}
+
 -(void)setUp{
     
     [self resetMap];
     _curSpeed = 0.2;
+    _curSpeedLevel = 0;
     
     
 }

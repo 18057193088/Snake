@@ -15,11 +15,12 @@
 #import "GameZoneModel.h"
 #import "Fruit.h"
 #import "CONST_FRUITE_TYPE.h"
-
+#import "StartButton.h"
 @implementation GameZoneView
 {
 
     float snakeWidth;
+    NSTimer * _randMakeFruitTimer ;
     
 }
 -(id)initWithFrame:(CGRect)frame{
@@ -52,19 +53,33 @@
     
     
     [self initModel];
+    snakeWidth  = ceilf ([self y_Width] / SNAKE_BODY_COL_COUNT);
+    
+    [self y_setWidth:snakeWidth * SNAKE_BODY_COL_COUNT];
+    [self y_setHeight:SNAKE_BODY_ROW_COUNT * snakeWidth ];
+    self.center = CGPointMake(SCREEN_WIDTH/2, self.center.y);
+    
+   
+    
+}
+
+-(void)startGame{
+      [self initModel];
     
     [self resetGame];
     
     [self randomMakeFruite];
     
-   [self animation];
+    [self animation];
     
-    NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(randomMakeFruite) userInfo:nil repeats:YES];
+
+    _randMakeFruitTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(randomMakeFruite) userInfo:nil repeats:YES];
+    
+  
+    
     
     
 }
-
-
 
 -(void)initModel{
     
@@ -76,21 +91,11 @@
 
     NSDate *date = [NSDate date];
     
-    NSCalendar *calendar = [[NSCalendar alloc]
-                            initWithCalendarIdentifier:NSGregorianCalendar];//设置成中国阳
+
     
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger time =  (NSInteger)[date timeIntervalSince1970] % 200;
     
-    NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |
-    NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit |
-    NSMinuteCalendarUnit | NSSecondCalendarUnit;//这句我也不明白具体时用来做什么。。。
-    
-    comps = [calendar components:unitFlags fromDate:date];
-    
- 
-    NSInteger second=[comps second];//获取秒对应的长整形字符串
-    
-    for(int i = 0 ; i<second ;i++){
+    for(int i = 0 ; i<time ;i++){
     
         rand();
         
@@ -103,14 +108,15 @@
 
 -(void)resetGame{
     
+  
+    
+    
     for(UIView * v in self.subviews){
     
         [v removeFromSuperview];
         
     }
     _curDirction  = DirctionRight;
-    
-    snakeWidth  = [self y_Width]/ SNAKE_BODY_COL_COUNT;
     
     CGPoint snakeHeadPoint = [self rowColToLeftAndTop:[[RowCol alloc] initWithRowCol:SNAKE_BODY_ROW_COUNT/2 col:SNAKE_BODY_COL_COUNT/2]];
     
@@ -122,13 +128,14 @@
     
     [self addSubview:snakeHead];
 
-    [self y_setHeight:SNAKE_BODY_ROW_COUNT * snakeWidth ];
+    
     
     for(int i = 0 ; i <2 ; i++){
         [self addNewSnakeHead];
         
     }
 
+ 
     [_model resetMap];
     
 }
@@ -137,6 +144,14 @@
     _model.isGameRunnig = NO;
     [self resetGame];
     
+    [_randMakeFruitTimer invalidate];
+    
+ 
+    if([_deledge respondsToSelector:@selector(gameOver)]){
+    
+        [_deledge gameOver];
+        
+    }
 }
 -(RowCol *)BodyViewCenterPointToLogicPoint:(CGPoint)point{
 
@@ -177,7 +192,7 @@
 
 -(void)animation{
     if(!_model.isGameRunnig){
-    
+        
         return;
         
     }
@@ -231,7 +246,6 @@
                 
             }
                 break;
-                
             case DirctionRight:
             {
                 [_curHeadSnakeBody y_setLeft:[_curHeadSnakeBody y_LeftX] +snakeWidth ];
@@ -239,12 +253,9 @@
                 
             }
                 break;
-                
             default:
                 break;
         }
-        
-        
         if(![self isNextStepVaid:_curHeadSnakeBody.center]){
         
             [self gameOver];
@@ -256,7 +267,9 @@
         
         
     } completion:^(BOOL finished) {
+       
         [self animation];
+        
         
     }];
     
@@ -285,8 +298,6 @@
         
         }
         
-        
-       
     }
 
     return YES;
@@ -300,35 +311,58 @@
     
     int fruitType =[_model mapValue:rowcol.row col:rowcol.col];
     
-    if(fruitType >=0 && fruitType <=FRUIT_NEW_BODY_END_INDEX){
+    if(fruitType >=0 && fruitType <=FRUIT_END_INDEX){
     
 
-        [self clearFruite:rowcol.row col:rowcol.col];
+        [self clearFruite:rowcol.row col:rowcol.col]; //清除掉这个水果
         
         
         [self addNewSnakeHead];
         
      
     }
-    
-  
-    
     if(fruitType == FRUIT_NEW_BODY_TYPE){
-        
         
         
     }else if(fruitType == FRUIT_NEW_BODY_SPEED_UP_TYPE){
         
-        _model.curSpeed*=0.5;
+        _model.curSpeed*=0.7;
+        _model.curSpeedLevel ++;
         
         
     
     }else if(fruitType == FRUIT_NEW_BODY_SPEED_SLOW_TYPE){
-        _model.curSpeed*=1.5;
+        _model.curSpeed *=1.3;
+        _model.curSpeedLevel--;
         
+        
+    }else if(fruitType == FRUIT_NEW_BODY_RANDOM_ADD_BODY){
+    
+        [self watermelonSkill];
         
     }
     
+}
+
+-(void)watermelonSkill{
+    
+    NSDate * date  = [NSDate date];
+    
+    NSInteger time =  (NSInteger)[date timeIntervalSince1970] % 200;
+    
+    for(int i = 0 ; i<time ;i++){
+        
+        rand();
+        
+    }
+ 
+   int  addNum = (rand() % 10) + 1 ;
+
+    while (addNum -- ) {
+        
+        [self addNewSnakeHead];
+        
+    }
 }
 -(void)clearFruite:(int)row col:(int) col{
     
@@ -350,25 +384,32 @@
     
     int row = rand() % SNAKE_BODY_ROW_COUNT;
     int col = rand() % SNAKE_BODY_COL_COUNT;
-    int fruitType = rand() % 3 ;
+    int fruitType = rand() % (FRUIT_END_INDEX+1) ;
     
     [_model setMapValue:row col:col value:fruitType];
     
     CGPoint origin = [self rowColToLeftAndTop:[[RowCol alloc] initWithRowCol:row col:col]];
     
     Fruit * fruit = [[Fruit alloc]initWithFrame:CGRectMake(origin.x, origin.y, snakeWidth, snakeWidth)];
-    
+
     fruit.rowcol = [[RowCol alloc]initWithRowCol:row col:col];
     
     fruit.type= fruitType;
     
     [_fruitViewArr addObject:fruit];
-    
+    fruit.alpha = 0 ;
     
     [self addSubview:fruit];
+    [UIView animateWithDuration:0.5 animations:^{
+        fruit.alpha = 1;
+        
+    }];
+    
+    
     
     
 }
+
 
 
 @end
